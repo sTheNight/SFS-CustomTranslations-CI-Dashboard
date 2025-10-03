@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import axios from 'axios'
-import { NCard, NList, NText, createDiscreteApi, lightTheme, NListItem, NFlex, NButton } from 'naive-ui'
+import { NCard, NList, NText, createDiscreteApi, lightTheme, NListItem, NFlex, NButton, NIcon } from 'naive-ui'
 import { h, onMounted, ref } from 'vue'
+import { Refresh } from '@vicons/ionicons5'
 import RawInfoDialog from './RawInfoDialog.vue'
 import ArtifactListItem from '@/components/ArtifactListItem.vue'
 import type { ArtifactInfo } from '@/model/artifactInfo'
@@ -79,6 +80,16 @@ function downloadArtifact(id?: string) {
         <NCard class="root-card" :bordered="false">
             <template #header>
                 <NText type="primary">历史构建</NText>
+            </template>
+            <template #header-extra>
+                <NButton :disabled="isLoading" :loading="isLoading" @click="loadPage(currentPage)">
+                    <template #icon>
+                        <NIcon>
+                            <Refresh />
+                        </NIcon>
+                    </template>
+                    刷新
+                </NButton>
             </template>
 
             <div v-if="isLoading && artifactList.length === 0" class="loading-placeholder">
