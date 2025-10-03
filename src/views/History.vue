@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import Background from '@/components/Background.vue'
 import axios from 'axios'
-import { NCard, NLayout, NList, NText, createDiscreteApi, lightTheme, NListItem, NFlex, NButton } from 'naive-ui'
+import { NCard, NList, NText, createDiscreteApi, lightTheme, NListItem, NFlex, NButton } from 'naive-ui'
 import { h, onMounted, ref } from 'vue'
 import RawInfoDialog from './RawInfoDialog.vue'
 import ArtifactListItem from '@/components/ArtifactListItem.vue'
@@ -76,41 +75,37 @@ function downloadArtifact(id?: string) {
 </script>
 
 <template>
-    <NLayout>
-        <Background></Background>
-        <div class="container">
-            <NCard class="root-card" :bordered="false">
-                <template #header>
-                    <NText type="primary">历史构建</NText>
-                </template>
+    <div class="container">
+        <NCard class="root-card" :bordered="false">
+            <template #header>
+                <NText type="primary">历史构建</NText>
+            </template>
 
-                <div v-if="isLoading && artifactList.length === 0" class="loading-placeholder">
-                    <NText depth="3">正在加载...</NText>
-                </div>
+            <div v-if="isLoading && artifactList.length === 0" class="loading-placeholder">
+                <NText depth="3">正在加载...</NText>
+            </div>
 
-                <template v-else>
-                    <NList hoverable :loading="isLoading">
-                        <NListItem v-for="artifact in artifactList" :key="artifact.id">
-                            <ArtifactListItem :artifact="artifact" @download="downloadArtifact"
-                                @show-raw="showRawInfo" />
-                        </NListItem>
-                    </NList>
+            <template v-else>
+                <NList hoverable :loading="isLoading">
+                    <NListItem v-for="artifact in artifactList" :key="artifact.id">
+                        <ArtifactListItem :artifact="artifact" @download="downloadArtifact" @show-raw="showRawInfo" />
+                    </NListItem>
+                </NList>
 
-                    <NFlex justify="space-between" align="center" style="margin-top: 12px;">
-                        <NButton @click="goToPrevPage" :disabled="currentPage === 1 || isLoading" :loading="isLoading">
-                            Previous
-                        </NButton>
+                <NFlex justify="space-between" align="center" style="margin-top: 12px;">
+                    <NButton @click="goToPrevPage" :disabled="currentPage === 1 || isLoading" :loading="isLoading">
+                        Previous
+                    </NButton>
 
-                        <NText>第 {{ currentPage }} 页</NText>
+                    <NText>第 {{ currentPage }} 页</NText>
 
-                        <NButton @click="goToNextPage" :disabled="isLoading" :loading="isLoading">
-                            Next
-                        </NButton>
-                    </NFlex>
-                </template>
-            </NCard>
-        </div>
-    </NLayout>
+                    <NButton @click="goToNextPage" :disabled="isLoading" :loading="isLoading">
+                        Next
+                    </NButton>
+                </NFlex>
+            </template>
+        </NCard>
+    </div>
 </template>
 
 <style scoped lang="scss">
