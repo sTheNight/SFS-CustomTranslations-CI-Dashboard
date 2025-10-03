@@ -3,10 +3,6 @@ import { getFormatDate } from '@/utils';
 import { NButton, NFlex, NTag, NText, NH3, NIcon } from 'naive-ui';
 import { ArrowDown, Code } from '@vicons/ionicons5';
 import { CheckmarkCircle, CloseCircle } from '@vicons/ionicons5';
-import { computed } from 'vue';
-const URL = import.meta.env.DEV
-    ? import.meta.env.VITE_API_URL_DEVELOPMENT
-    : import.meta.env.VITE_API_URL_PRODUCTION;
 const props = defineProps({
     artifact: { type: Object, required: true },
 })

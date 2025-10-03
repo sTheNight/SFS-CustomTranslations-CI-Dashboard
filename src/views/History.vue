@@ -94,13 +94,13 @@ function downloadArtifact(id?: string) {
 
                 <NFlex justify="space-between" align="center" style="margin-top: 12px;">
                     <NButton @click="goToPrevPage" :disabled="currentPage === 1 || isLoading" :loading="isLoading">
-                        Previous
+                        上一页
                     </NButton>
 
                     <NText>第 {{ currentPage }} 页</NText>
 
                     <NButton @click="goToNextPage" :disabled="isLoading" :loading="isLoading">
-                        Next
+                        下一页
                     </NButton>
                 </NFlex>
             </template>
