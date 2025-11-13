@@ -8,8 +8,8 @@ hljs.registerLanguage('json', json)
 const props = defineProps({
   rawInfo: {
     type: String,
-    default: '{}'
-  }
+    default: '{}',
+  },
 })
 
 const formattedJson = computed(() => {
