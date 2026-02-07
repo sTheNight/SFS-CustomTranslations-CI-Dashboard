@@ -1,6 +1,6 @@
 ## SFS-CustomTranslations-CI-Dashboard
 
-本项目用于自动拉取 [SFS-CustomTranslations-Installer](https://github.com/youfeng11/SFS-CustomTranslations-Installer) 的 CI 构建。
+本项目用于自动拉取 [SFS-MobileTools](https://github.com/youfeng11/SFS-MobileTools) 的 CI 构建。
 
 此为前端部分，使用 [GNU AGPL v3](/LICENSE) 协议发布。
 
