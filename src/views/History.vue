@@ -38,7 +38,7 @@ async function loadPage(targetPage: number) {
         if (!URL) throw new Error('Environment variable VITE_API_URL is not defined')
 
         const res = await axios.get(`${URL}/history?page=${targetPage}`)
-        const data = res.data as Array<ArtifactInfo>
+        const data = res.data.artifacts as Array<ArtifactInfo>
 
         if (data.length <= 0) {
             message.info('没有更多历史构建了')
