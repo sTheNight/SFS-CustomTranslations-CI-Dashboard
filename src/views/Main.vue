@@ -16,7 +16,7 @@ import {
 import AboutDialog from './AboutDialog.vue'
 import RawInfoDialog from './RawInfoDialog.vue'
 import { useRouter } from 'vue-router'
-import { type ArtifactInfo } from '@/model/artifactInfo'
+import { type ArtifactInfo } from '@/model/ArtifactInfo'
 import { getFormatDate } from '@/utils'
 
 const modal = useModal();

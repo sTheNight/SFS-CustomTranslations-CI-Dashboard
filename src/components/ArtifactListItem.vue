@@ -69,4 +69,8 @@ defineEmits(['download', 'show-raw'])
 .list-item-content {
     padding: 12px 0;
 }
+
+.list-item-box {
+    cursor: default;
+}
 </style>
